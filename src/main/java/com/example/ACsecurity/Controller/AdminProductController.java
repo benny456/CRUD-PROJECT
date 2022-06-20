@@ -10,6 +10,8 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,16 +19,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import com.example.ACsecurity.model.Category;
 import com.example.ACsecurity.model.CategoryRepository;
-import com.example.ACsecurity.model.Page;
+
 import com.example.ACsecurity.model.Product;
 import com.example.ACsecurity.model.ProductRepository;
-
-
 @Controller
 @RequestMapping("/admin/products")
 public class AdminProductController {
@@ -36,25 +40,34 @@ public class AdminProductController {
 	@Autowired
 	private CategoryRepository categoryRepo;
 	
-	@GetMapping
-	public String index(Model model) {
-		
-		List<Product>products = productRepo.findAll();
-		
-		List<Category> categories = categoryRepo.findAll();
-		
-       HashMap<Integer,String> cats = new HashMap<>();
-       
-		
-		for(Category cat : categories) {
-			cats.put(cat.getId(),cat.getName());
-		}
-		
-		model.addAttribute("products" ,products);
-		model.addAttribute("cats" , cats);
-		
-		return "/admin/products/index";
-	}
+	 @GetMapping
+	    public String index(Model model, @RequestParam(value="page", required = false) Integer p) {
+
+	        int perPage = 6;
+	        int page = (p != null) ? p : 0;
+	        Pageable pageable = PageRequest.of(page, perPage);
+	        
+	        Page<Product> products = productRepo.findAll(pageable);
+	        List<Category> categories = categoryRepo.findAll();
+
+	        HashMap<Integer, String> cats = new HashMap<>();
+	        for (Category cat : categories) {
+	            cats.put(cat.getId(), cat.getName());
+	        }
+
+	        model.addAttribute("products", products);
+	        model.addAttribute("cats", cats);
+
+	        long count = productRepo.count();
+	        double pageCount = Math.ceil((double)count / (double)perPage);
+
+	        model.addAttribute("pageCount", (int)pageCount);
+	        model.addAttribute("perPage", perPage);
+	        model.addAttribute("count", count);
+	        model.addAttribute("page", page);
+
+	        return "admin/products/index";
+	    }
 	
 	@GetMapping("/add") 
 	public String add(Product product,Model model) {

@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MainController {
 
-    @GetMapping("/")
-    public String root() {
-        return "index";
-    }
+//    @GetMapping("/")
+//    public String root() {
+//        return "page";
+//    }
 
     @GetMapping("/login")
     public String login(Model model) {
