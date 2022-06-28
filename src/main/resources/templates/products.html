@@ -18,7 +18,8 @@
 
 					<div class="col-4" th:each="product:${products}">
 						<p>
-							<img style="width:200px;" th:src="@{'/media/' + ${product.image}}">
+							<img style="width:250px;border-radius: 10px;border: 3px solid black;
+  margin-top: 10px;" th:src="@{'/media/' + ${product.image}}">
 						</p>
 						<h4 th:text="${product.name}"></h4>
 
