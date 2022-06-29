@@ -4,3 +4,25 @@ body{
   background-size: 85pc;
 }
 
+.container{
+padding-top:100px;
+padding-right:50px;
+width: 2300px;
+
+border-radius: 20%;
+
+}
+.ui-sortable{
+
+background-color:aqua;
+border-collapse: collapse;
+border-radius: 50px;
+
+
+
+}
+
+
+
+
+
