@@ -1,0 +1,18 @@
+
+body{
+background-color:#ffecd3;
+}
+
+.container1 {
+  background-image:url("https://i.insider.com/5e9da47eb3b092626b4ca998?width=1000&format=jpeg&auto=webp");
+  
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 650px;
+  padding: 30px 0px;
+  box-shadow: 1px 1px 20px #171717;
+  font-variant-position: normal;
+}
