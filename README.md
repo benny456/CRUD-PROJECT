@@ -1,6 +1,6 @@
 # CRUD-PROJECT
-An online ecommerce website where users can register and login to buy differnet amazing captured moments of different animals.
-For now I only have Penguines and Dogs but in the future Planning to expand this in to a zoo like website with differnet wild and domestic animal pictures.
-For this Particular project I used Spring Boot, Thymeleaf,Spring Security and roles,Spring Data Jpa,custom database, HTML, JavaScript, CSS and so on.
+An online ecommerce website where users can register and login to buy amazing captured moments of different animals.
+For now we have Penguines and Dogs but in the future we are planning to expand this into a full gallery zoo like website with an assortment of wild and domesticated animals.
+For this Particular project I used Spring Boot, Thymeleaf,Spring Security,Spring Data Jpa,MYSQL, HTML, JavaScript, CSS etc.
 
-The most difficulties I face while working on this project was on how to upload the images in the data base which was a little bit tricky. After hours of researching I found the solution in both udemy and stack overflow.
+The impediments I faced while working on this project were uploading images into the database which was intricate task. After hours of researching and development I was able to inquire and retrive some much needed solutions using resources such as udemy and stack overflow.
