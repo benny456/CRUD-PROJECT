@@ -59,7 +59,7 @@ public class AdminPagesController {
 		Page slugExists = pageRepo.findBySlug(slug);
 		
 		if (slugExists != null) {
-			redirectAttributes.addFlashAttribute("message","Slug exists, choose another");
+			redirectAttributes.addFlashAttribute("message","Name exists, choose another");
 			redirectAttributes.addFlashAttribute("alertClass","alert-danger");
 			redirectAttributes.addFlashAttribute("page",page);
 			
@@ -95,7 +95,7 @@ public class AdminPagesController {
 		Page slugExists = pageRepo.findBySlugAndIdNot(slug, page.getId());
 		
 		if (slugExists != null) {
-			redirectAttributes.addFlashAttribute("message","Slug exists, choose another");
+			redirectAttributes.addFlashAttribute("message","Name exists, choose another");
 			redirectAttributes.addFlashAttribute("alertClass","alert-danger");
 			redirectAttributes.addFlashAttribute("page",page);
 			

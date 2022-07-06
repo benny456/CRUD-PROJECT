@@ -1,15 +1,19 @@
 body{
  
- background-image: url(../media/birds.jpg);
+  background-image: url(/media/birds.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+   
+   
+  
 }
 
 .row{
 
 
  border: 0;
-  background: rgba(159, 99, 99, 0.4);
+  background: rgba(159, 99, 99, 0.4);;
+  
   display: block;
   margin: 10px auto;
   text-align: center;
