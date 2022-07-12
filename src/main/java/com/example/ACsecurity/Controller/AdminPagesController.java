@@ -44,6 +44,7 @@ public class AdminPagesController {
 		model.addAttribute("page",new Page());
 		return "admin/pages/add";
 	}
+
 	
 	@PostMapping("/add")
 	public String add (@Valid Page page, BindingResult bindingResult ,RedirectAttributes redirectAttributes , Model model) {
